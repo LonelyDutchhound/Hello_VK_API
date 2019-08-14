@@ -5,6 +5,15 @@ div {
   justify-content: center;
 }
 
+ul{
+  list-style: none;
+}
+
+li, p {
+  font-size: 2em;
+  font-weight: bold;
+}
+
 .button {
   position: relative;
   margin: auto;

@@ -5,8 +5,8 @@ let cookieName = "vk_app_7096654";
 
 let userCookie = checkCookie(cookieName);
 
-function checkCookie(cookieName) {
-  let result = document.cookie.match('(^|;) ?' + cookieName + '=([^;]*)(;|$)');
+function checkCookie(name) {
+  let result = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
   if (result)
     return true;
   else
@@ -37,16 +37,14 @@ function authorizeUser() {
     };
 
 
-    VK.Api.call('users.get', {
+     VK.Api.call('users.get', {
       user_id: userId,
       fields: 'photo_100',
       v: '5.89'
     }, function(data){
         userPhoto = data.response[0].photo_100;
-         $('.greeting-text').html('<p><img src="' + userPhoto + '"/>Привет ' + firstName + ' ' + lastName + ' !<p>');
+         $('.greeting').html('<div class="avatar"><img src="' + userPhoto + '"/></div><div class="greeting-text">Привет ' + firstName + ' ' + lastName + ' !</div>');
     });
-
-
 
     VK.Api.call('friends.get', {
       fields: 'photo_50',
@@ -56,10 +54,10 @@ function authorizeUser() {
     }, function(data) {
 
       friends = data.response.items.map(function(a) {
-        return '<li class="friend">' + a.first_name + ' ' + a.last_name + '<img src="' + a.photo_50 + '"></li>';
+        return '<div class="friend">' + a.first_name + ' ' + a.last_name + '</div><div class="photo"><img src="' + a.photo_50 + '"></div>';
       });
 
-      $('ul.friendlist').html(friends);
+      $('.friendlist-container').html(friends);
     });
   });
 }

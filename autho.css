@@ -1,45 +1,62 @@
-div {
-  display: flex;
-  height: 10em;
-  align-items: center;
-  justify-content: center;
+body{
+  font-family: 'Open Sans', sans-serif;
 }
 
-ul{
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-collapse: collapse;
+  border-radius: 1em;
+  background: rgb(193, 220, 242);
+}
+
+.btn-container, .friendlist-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-collapse: collapse;
+  padding: 0.5em;
+  background: rgb(193, 220, 242);
+}
+
+.friendlist {
   list-style: none;
 }
 
-li, p {
-  font-size: 2em;
-  font-weight: bold;
+.friend{
+  position: relative;
+  float: right;
 }
 
-.button {
+img {
+  position: relative;
+  float: left;
+  border-radius: 50%;
+}
+
+a.button{
   position: relative;
   margin: auto;
-  font-size: 90%;
-  font-weight: 700;
-  color: rgb(209,209,217);
+  font-size: 120%;
+  font-weight: 600;
+  color: rgb(255, 255, 255);
   text-decoration: none;
-  text-shadow: 0 -1px 2px rgba(0,0,0,.2);
   padding: .5em 1em;
   outline: none;
   border-radius: 3px;
-  background: rgb(19, 95, 124);
-  box-shadow:
-   0 1px rgba(255,255,255,.2) inset,
-   0 3px 5px rgba(0,1,6,.5),
-   0 0 1px 1px rgba(0,1,6,.2);
-  transition: .2s ease-in-out;
+  background: rgb(15, 103, 128);
 }
+
 .button:hover:not(:active) {
-  background: rgb(49, 137, 171) ;
+  background: rgb(5, 73, 92);
 }
 .button:active {
-  top: 1px;
-  background: rgb(15, 68, 88);
-  box-shadow:
-   0 0 1px rgba(0,0,0,.5) inset,
-   0 2px 3px rgba(0,0,0,.5) inset,
-   0 1px 1px rgba(255,255,255,.1);
+  background: rgb(5, 52, 65);
+}
+
+li {
+  font-size: 100%;
+  font-weight: bold;
 }
